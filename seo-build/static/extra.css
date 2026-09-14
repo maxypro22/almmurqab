@@ -1,0 +1,186 @@
+
+/* ---------------------------------------------------------------------------
+   Appended by seo-build/build.mjs — components for the guides, practice pages
+   and landing pages. Everything else reuses the compiled Tailwind utilities.
+   ------------------------------------------------------------------------- */
+
+/* The reset makes links inherit colour and lose their underline, which is
+   right for navigation but leaves links inside running text invisible. */
+.article-body a,
+.prose-body a,
+.quick-answer a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-brand-300);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 0.3s, text-decoration-color 0.3s;
+}
+.article-body a:hover,
+.prose-body a:hover,
+.quick-answer a:hover {
+  color: var(--color-brand-700);
+  text-decoration-color: currentColor;
+}
+
+.article-body strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+/* Tables scroll on their own at phone width instead of widening the page. */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  -webkit-overflow-scrolling: touch;
+}
+.table-wrap table {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+.table-wrap th,
+.table-wrap td {
+  padding: 0.8rem 1rem;
+  text-align: start;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-line);
+}
+.table-wrap thead th {
+  background: var(--color-paper-warm);
+  color: var(--color-ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.table-wrap tbody tr:last-child td {
+  border-bottom: 0;
+}
+[dir="rtl"] .table-wrap table {
+  line-height: 1.9;
+}
+
+/* The direct answer at the top of each guide — what snippets and AI
+   answers quote. */
+.quick-answer {
+  border: 1px solid var(--color-line);
+  border-inline-start: 3px solid var(--color-ink);
+  background: var(--color-paper-warm);
+  padding: 1.5rem 1.75rem 1.65rem;
+}
+.quick-answer-title {
+  color: var(--color-ink-faint);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+[dir="ltr"] .quick-answer-title {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.quick-answer ul {
+  margin-top: 0.9rem;
+}
+.quick-answer li {
+  position: relative;
+  padding-inline-start: 1.35rem;
+  color: var(--color-ink);
+  line-height: 1.8;
+}
+[dir="rtl"] .quick-answer li {
+  line-height: 2;
+}
+.quick-answer li + li {
+  margin-top: 0.55rem;
+}
+.quick-answer li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.85em;
+  width: 0.55rem;
+  height: 1px;
+  background: var(--color-brand);
+}
+
+/* Card grids drawn with cell borders instead of a 1px gap over a coloured
+   background, so a row that isn't full leaves blank space, not a grey block. */
+.cell-grid {
+  display: grid;
+  border-top: 1px solid var(--color-line);
+  border-inline-start: 1px solid var(--color-line);
+}
+.cell-grid > * {
+  border-bottom: 1px solid var(--color-line);
+  border-inline-end: 1px solid var(--color-line);
+}
+.cell-grid > .area-card {
+  border-top-width: 0;
+  border-inline-start-width: 0;
+}
+
+/* Grid items default to min-width:auto, so a wide table or a long URL inside
+   a column would stretch the page past the screen on phones. */
+main .grid > * {
+  min-width: 0;
+}
+
+/* Paragraph rhythm for generated prose blocks. */
+.prose-flow > * + * {
+  margin-top: 1.4rem;
+}
+.article-body > h2:first-child {
+  margin-top: 0;
+}
+
+/* Numbered process steps: as many columns as fit, never cramped. */
+.steps {
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+}
+.steps > li {
+  background: var(--color-paper);
+  padding: 1.75rem 1.5rem 2rem;
+}
+.steps .step-num {
+  font-family: var(--font-display-en);
+  color: var(--color-brand);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+.service-card {
+  background: var(--color-paper);
+  padding: 1.9rem 1.75rem 2.1rem;
+  transition: background-color 0.4s;
+}
+.service-card:hover {
+  background: var(--color-paper-warm);
+}
+.service-card .step-num {
+  font-family: var(--font-display-en);
+  color: var(--color-brand);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+.cta-box {
+  border: 1px solid var(--color-line);
+  background: var(--color-paper-warm);
+  padding: 1.5rem 1.5rem 1.65rem;
+}
+
+/* FAQ accordions: the question is an h3 inside <summary>. */
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq summary h3 {
+  margin: 0;
+}
+.faq summary:hover h3 {
+  color: var(--color-brand-700);
+}
+
+.source-list a {
+  word-break: break-word;
+}

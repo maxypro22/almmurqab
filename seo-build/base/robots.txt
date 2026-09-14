@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+Host: https://almurqablaw.com
+Sitemap: https://almurqablaw.com/sitemap.xml

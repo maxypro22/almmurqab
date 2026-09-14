@@ -1,0 +1,24 @@
+# Al Murqab Law Office — almurqablaw.com
+# Search engines and AI answer engines are welcome to crawl and cite this site.
+
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Google-Extended
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: DuckAssistBot
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://almurqablaw.com/sitemap.xml

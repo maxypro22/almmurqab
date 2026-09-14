@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مكتب المرقاب للمحاماة | Al Murqab Law Office</title>
+<link rel="canonical" href="https://almurqablaw.com/ar">
+<!--
+  Fallback only. On Hostinger, .htaccess sends "/" to /ar or /en before this
+  file is ever read. If that rule is not running, this picks the language in
+  the browser instead, with a plain meta refresh for no-JS visitors.
+-->
+<script>
+  (function () {
+    var langs = (navigator.languages || [navigator.language || ""]).join(",").toLowerCase();
+    var en = /\ben\b/.test(langs) && !/\bar\b/.test(langs);
+    // Opened from disk there is no server to map /ar to ar.html.
+    var ext = location.protocol === "file:" ? ".html" : "";
+    location.replace((en ? "en" : "ar") + ext);
+  })();
+</script>
+<meta http-equiv="refresh" content="0; url=/ar">
+<link rel="icon" href="/favicon.ico">
+</head>
+<body style="font-family: system-ui, sans-serif; text-align: center; padding: 4rem 1rem;">
+<p><a href="/ar">العربية</a> · <a href="/en">English</a></p>
+</body>
+</html>

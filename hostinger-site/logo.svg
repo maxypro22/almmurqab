@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 283" role="img" aria-label="Al Murqab Law Firm">
+  <!--
+    The firm's scales-of-justice mark, traced from the official artwork
+    supplied by the firm (photo_2026-08-16_09-33-00.jpg).
+
+    This is a measured trace, not a freehand redraw. Every coordinate below
+    came from scanning the raster for runs of ink and reading off the edges:
+    the pan bases sit at y=298 in the source, the beam's underside at y=182,
+    the shaft bars at x=617-638 and x=649-670, and so on. The viewBox is the
+    mark's own ink bounding box (source x 487-799, y 113-396) shifted to the
+    origin, so the artwork has no built-in padding to fight with.
+
+    It supersedes an earlier trace taken from a ~180px logo baked into a
+    social graphic, which got several details wrong: a solid single-bar
+    column rather than the split shaft, pans pointing the wrong way, and no
+    flared capital.
+
+    Everything is currentColor, so there is no light/dark variant to keep in
+    step. If the firm has the original vector file, that still beats this.
+  -->
+  <g fill="currentColor">
+    <!-- Pointer above the beam -->
+    <path d="M158.5 0 L189.5 34 L126.5 34 Z"/>
+
+    <!-- Beam. Very slightly wider along its underside than its top edge —
+         that taper is in the source artwork, not an artefact. -->
+    <path d="M48 47 L265 47 L276 69 L37 69 Z"/>
+
+    <!-- Knobs at the beam ends, where the pans hang from -->
+    <circle cx="51.5" cy="66.5" r="14"/>
+    <circle cx="261.5" cy="66.5" r="14"/>
+
+    <!-- Suspension lines -->
+    <rect x="50" y="78" width="3.5" height="22"/>
+    <rect x="260" y="78" width="3.5" height="22"/>
+
+    <!-- Pans: apex up, base down -->
+    <path d="M51.5 98 L102.5 185 L0.5 185 Z"/>
+    <path d="M261.5 98 L311.5 185 L210.5 185 Z"/>
+
+    <!-- Flared capital -->
+    <path d="M118 78 L194 78 L184 100 L129 100 Z"/>
+
+    <!-- Split shaft — two bars with a channel between them. It starts 9
+         units clear of the capital: the source leaves white between the two
+         (ink resumes at y=222 in the raster, the capital ends at y=213), and
+         closing that gap was the one thing the first pass of this trace got
+         wrong. -->
+    <rect x="130" y="109" width="21" height="124"/>
+    <rect x="162" y="109" width="21" height="124"/>
+
+    <!-- Stepped base -->
+    <rect x="90" y="233" width="131" height="20"/>
+    <rect x="70" y="262" width="170" height="21"/>
+  </g>
+</svg>

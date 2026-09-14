@@ -1,0 +1,7 @@
+.claude/
+*.zip
+almurqablaw-upload/
+photo_*.jpg
+node_modules/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,14 @@
+{
+  "name": "almurqab-seo-build",
+  "private": true,
+  "type": "module",
+  "description": "Builds the SEO-optimised static site for almurqablaw.com into ../hostinger-site",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:draft": "node build.mjs --draft",
+    "indexnow": "node indexnow.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
