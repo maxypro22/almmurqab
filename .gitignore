@@ -2,6 +2,7 @@
 *.zip
 almurqablaw-upload/
 photo_*.jpg
+_preview/
 node_modules/
 .DS_Store
 Thumbs.db

@@ -26,6 +26,7 @@ Run these from this folder (needs Node 20+):
 | --- | --- |
 | `node build.mjs` | Checks every content file, then rebuilds `../hostinger-site`. If anything fails a check it writes nothing. |
 | `node build.mjs --draft` | Builds anyway, leaving out the files that fail. For previewing only. |
+| `node preview.mjs /almmurqab ../_preview` | Makes a noindex copy for GitHub Pages. Runs automatically on every push to `main`: https://maxypro22.github.io/almmurqab/ |
 | `node indexnow.mjs` | Run **after** uploading. Tells Bing (which feeds ChatGPT search and Copilot) about every URL. |
 
 `../hostinger-site` is emptied and rebuilt on every run. **Never edit files there by hand.** Change `content/`, `lib/site.mjs` or `base/` and rebuild.
