@@ -199,3 +199,18 @@ main .grid > * {
 .source-list a {
   word-break: break-word;
 }
+
+/* Floating chat/WhatsApp buttons lift 3px on hover. Without a larger hit area
+   the cursor near the bottom edge falls off the lifted button, hover ends, it
+   drops back and re-hovers — a flicker loop in Chrome. The ::after pad keeps
+   the cursor inside; will-change keeps the icon on its own layer while it moves. */
+.fab {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.fab::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+}
