@@ -199,3 +199,32 @@ main .grid > * {
   inset: -6px;
   border-radius: inherit;
 }
+
+/* Footer on phones: logo block centred across the full width, the two link
+   lists side by side, contact details full width beneath them. */
+@media (max-width: 47.99rem) {
+  footer .shell > .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.25rem;
+    row-gap: 3rem;
+  }
+  footer .shell > .grid > * {
+    min-width: 0;
+  }
+  footer .shell > .grid > :first-child,
+  footer .shell > .grid > :last-child {
+    grid-column: 1 / -1;
+  }
+  footer .shell > .grid > :first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  footer .shell > .grid > :first-child img {
+    margin-inline: auto;
+  }
+  footer .footer-item {
+    font-size: 0.8125rem;
+  }
+}

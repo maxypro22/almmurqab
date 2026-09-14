@@ -709,6 +709,7 @@ async function main() {
     const html = fs.readFileSync(file, "utf8");
     const next = html
       .replace(/style\.css\?v=\w+/g, `style.css?v=${cssVersion}`)
+      .replace(/© 20\d\d/g, "© 2025") // copyright year the firm asked for
       .replace(PRELOADER, "")
       .replace(HEAD_SCRIPT, "<script>document.documentElement.classList.add('js-reveal')</script>");
     if (next !== html) fs.writeFileSync(file, next);
