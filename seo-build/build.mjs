@@ -553,9 +553,10 @@ async function main() {
     patch(loc, "team", { seo: PAGES.team[loc] }, (main) =>
       main
         .replace(/<p class="mt-3 flex-1 text-sm leading-relaxed text-ink-muted">[^<]*<\/p>/, "")
+        .replace(/<div class="area-card-body">/, '<div class="area-card-body founder-card">')
         .replace(
           /<p class="mt-1\.5 text-xs tracking-wide text-ink-faint">/,
-          '<p class="eyebrow mt-3">',
+          '<p class="eyebrow">',
         ),
     );
 

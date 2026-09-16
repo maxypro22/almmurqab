@@ -215,6 +215,30 @@ main .grid > * {
   border-radius: inherit;
 }
 
+/* Founder card on the team page: name and role centred, separated by a short
+   brand rule. The rule is placed with physical left/translate so it stays
+   centred in both writing directions. */
+.founder-card {
+  align-items: center;
+  text-align: center;
+}
+.founder-card .eyebrow {
+  position: relative;
+  margin-top: 1.15rem;
+  padding-top: 1.15rem;
+}
+.founder-card .eyebrow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.25rem;
+  height: 1px;
+  background: var(--color-brand);
+  opacity: 0.6;
+}
+
 /* Footer on phones: logo block centred across the full width, the two link
    lists side by side, contact details full width beneath them. */
 @media (max-width: 47.99rem) {
