@@ -555,7 +555,7 @@ async function main() {
         .replace(/<p class="mt-3 flex-1 text-sm leading-relaxed text-ink-muted">[^<]*<\/p>/, "")
         .replace(
           /<p class="mt-1\.5 text-xs tracking-wide text-ink-faint">/,
-          '<p class="mt-1.5 text-xs tracking-wide text-ink-faint text-center">',
+          '<p class="eyebrow mt-3">',
         ),
     );
 
