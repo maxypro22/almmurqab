@@ -12,11 +12,10 @@
 -->
 <script>
   (function () {
-    var langs = (navigator.languages || [navigator.language || ""]).join(",").toLowerCase();
-    var en = /\ben\b/.test(langs) && !/\bar\b/.test(langs);
+    // Arabic for every visitor, matching the .htaccess rule; the switch in the
+    // header covers everyone else.
     // Opened from disk there is no server to map /ar to ar.html.
-    var ext = location.protocol === "file:" ? ".html" : "";
-    location.replace((en ? "en" : "ar") + ext);
+    location.replace("ar" + (location.protocol === "file:" ? ".html" : ""));
   })();
 </script>
 <meta http-equiv="refresh" content="0; url=/ar">

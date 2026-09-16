@@ -133,22 +133,14 @@ AddDefaultCharset UTF-8
   RewriteCond %{REQUEST_URI} !^/$
   RewriteRule ^(.+)/$ /$1 [R=301,L]
 
-  # --- 4. No language in the URL -> pick one (307, like proxy.ts) -----------
-  # English only when the browser clearly prefers it; Arabic is the default.
-  # Temporary on purpose: a 301 would pin a visitor to their first language.
+  # --- 4. No language in the URL -> Arabic (307, like proxy.ts) -------------
+  # The firm asked for Arabic for every visitor, whatever the browser asks
+  # for; the switch in the header covers everyone else.
+  # Temporary on purpose: a 301 would pin a visitor to one language.
   # Anything with a file extension (images, robots.txt, sitemap.xml) is left
   # alone.
-  # "/" gets its own pair so it lands on /en or /ar in one hop, not via /en/.
-  RewriteCond %{HTTP:Accept-Language} \ben\b [NC]
-  RewriteCond %{HTTP:Accept-Language} !\bar\b [NC]
-  RewriteRule ^$ /en [R=307,L]
+  # "/" gets its own rule so it lands on /ar in one hop, not via /ar/.
   RewriteRule ^$ /ar [R=307,L]
-
-  RewriteCond %{REQUEST_URI} !^/(ar|en)(/|$)
-  RewriteCond %{REQUEST_URI} !\.[a-z0-9]+$ [NC]
-  RewriteCond %{HTTP:Accept-Language} \ben\b [NC]
-  RewriteCond %{HTTP:Accept-Language} !\bar\b [NC]
-  RewriteRule ^(.+)$ /en/$1 [R=307,L]
 
   RewriteCond %{REQUEST_URI} !^/(ar|en)(/|$)
   RewriteCond %{REQUEST_URI} !\.[a-z0-9]+$ [NC]
