@@ -548,7 +548,16 @@ async function main() {
       )
     );
 
-    patch(loc, "team", { seo: PAGES.team[loc] });
+    // The founder card: the role sits centred under the name, and the one-line
+    // bio repeated the role, so it goes.
+    patch(loc, "team", { seo: PAGES.team[loc] }, (main) =>
+      main
+        .replace(/<p class="mt-3 flex-1 text-sm leading-relaxed text-ink-muted">[^<]*<\/p>/, "")
+        .replace(
+          /<p class="mt-1\.5 text-xs tracking-wide text-ink-faint">/,
+          '<p class="mt-1.5 text-xs tracking-wide text-ink-faint text-center">',
+        ),
+    );
 
     const founderKey = `team/${FIRM.founder.slug}`;
     patch(loc, founderKey, { seo: PAGES[founderKey][loc], image: FIRM.founder.image, imageAlt: FIRM.founder.display[loc] }, (main) =>
@@ -704,16 +713,24 @@ async function main() {
   // absent; js-reveal stays for the scroll animations.
   const PRELOADER = /<div class="preloader"[\s\S]*?<p class="preloader-count"[^>]*>[^<]*<\/p><\/div><\/div>/;
   const HEAD_SCRIPT = /<script>\(function\(d\)\{d\.classList\.add\('js-reveal'\);[\s\S]*?<\/script>/;
+  // The founder writes his name as one word, with no gap after the honorific.
+  const founderName = (s) => s.replace(/أ\/\s*عبد\s*الله/g, "أ/عبدالله").replace(/عبد الله/g, "عبدالله");
+
   const htmlFiles = walk(OUT).filter((f) => f.endsWith(".html"));
   for (const file of htmlFiles) {
     const html = fs.readFileSync(file, "utf8");
-    const next = html
+    const next = founderName(html)
       .replace(/style\.css\?v=\w+/g, `style.css?v=${cssVersion}`)
       .replace(/© 20\d\d/g, "© 2025") // copyright year the firm asked for
       .replace(PRELOADER, "")
       .replace(HEAD_SCRIPT, "<script>document.documentElement.classList.add('js-reveal')</script>");
     if (next !== html) fs.writeFileSync(file, next);
   }
+
+  // site-data.js feeds the assistant, so it carries the name too.
+  const dataFile = path.join(OUT, "assets", "js", "site-data.js");
+  const data = fs.readFileSync(dataFile, "utf8");
+  if (founderName(data) !== data) fs.writeFileSync(dataFile, founderName(data));
 
   const words = articles.reduce((n, a) => n + a.words.ar + a.words.en, 0);
   console.log(`\n✔ Built ${htmlFiles.length} HTML pages into ${OUT}`);

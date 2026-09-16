@@ -41,8 +41,8 @@ export const FIRM = {
   logo: "/logo-lockup.png",
   founder: {
     slug: "abdullah-al-khawar",
-    name: { ar: "عبد الله الخوار", en: "Abdullah Al-Khawar" },
-    display: { ar: "أ/ عبد الله الخوار", en: "Abdullah Al-Khawar" },
+    name: { ar: "عبدالله الخوار", en: "Abdullah Al-Khawar" },
+    display: { ar: "أ/عبدالله الخوار", en: "Abdullah Al-Khawar" },
     role: { ar: "المؤسس", en: "Founder" },
     image: "/images/team/abdullah-al-khawar.jpg",
   },
@@ -215,9 +215,9 @@ export const PAGES = {
   },
   "team/abdullah-al-khawar": {
     ar: {
-      title: "أ/ عبد الله الخوار — مؤسس مكتب المرقاب للمحاماة",
+      title: "أ/عبدالله الخوار — مؤسس مكتب المرقاب للمحاماة",
       description:
-        "أ/ عبد الله الخوار، مؤسس مكتب المرقاب للمحاماة في الدوحة، قطر. للتواصل وحجز استشارة قانونية: ٧١٩٠٠١٩٠ أو info@almurqablaw.com.",
+        "أ/عبدالله الخوار، مؤسس مكتب المرقاب للمحاماة في الدوحة، قطر. للتواصل وحجز استشارة قانونية: ٧١٩٠٠١٩٠ أو info@almurqablaw.com.",
     },
     en: {
       title: "Abdullah Al-Khawar — Founder, Al Murqab Law Office",
